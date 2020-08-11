@@ -1,0 +1,107 @@
+\begin{figure}
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}[>=triangle 45,thick,node distance=0.5cm]
+
+\path (0,0) coordinate (origin1);
+\path (90:3cm) coordinate (1U);
+\path (2*120+90:3cm) coordinate (1V);
+\path (1*120+90:3cm) coordinate (1W);
+\path (0,-6cm) coordinate (origin2);
+\path (origin2) ++(90+150:3cm) coordinate (2U);
+\path (origin2) ++(90+150+2*120:3cm) coordinate (2V);
+\path (origin2) ++(90+150+1*120:3cm) coordinate (2W);
+\path (0.7cm,1.7cm) coordinate (U1U1N);
+\path (origin2) ++(-2.5cm,0cm) coordinate (U2U2V);
+
+\path (240:3cm) coordinate (Usek);
+\path (240:1cm) coordinate (arc1);
+\path (240:2.5cm) coordinate (arc2);
+\path (90:1.3cm) coordinate (arc3);
+\path (-0.3cm, 1.3cm) coordinate (arc3help);
+
+\draw [->] (origin1) -- (1U);
+\draw [->] (origin1) -- (1V);
+\draw [->] (origin1) -- (1W);
+
+\draw [->] (origin2) -- (2U);
+\draw [->] (origin2) -- (2V);
+\draw [->] (origin2) -- (2W);
+
+\draw [->] (2V) -- (2U);
+\draw [->] (2U) -- (2W);
+\draw [->] (2W) -- (2V);
+
+\node [above of =1U] {1U};
+\node [below right of =1V] {1V};
+\node [below left of =1W] {1W};
+\node [below left of =2U] {2U};
+\node [above right of =2V] {2V};
+\node [right of =2W] {2W};
+\node [right of =U1U1N] {$U_{1U1N}=U_a$};
+\node [left of =U2U2V] {$U_{2U2V}=-U_d$};
+
+\end{tikzpicture}
+\caption{Zeigerdiagramm}
+\end{minipage}%
+~
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{circuitikz}
+
+%\draw [help lines] (-1,-1) grid (6,-10); %Zeichnet Raster und vereinfacht damit das Zeichnen
+	
+	%U
+	\draw (0,0) node[above=5mm] {$1U$}
+	to[american inductor, o-] (0,-3);
+	\draw (0,-0.7) node[right=1.5mm] {$\bullet$};
+
+	\draw (0,-5) [american inductor, -o] 
+	to node[below=10mm] {$2U$} (0,-9);
+	\draw (0,-6.2) node[right=1.5mm] {$\bullet$};
+
+	%V
+	\draw (2,0) node[above=5mm] {$1V$}
+	to[american inductor, o-] (2,-3);
+	\draw (2,-0.7) node[right=1.5mm] {$\bullet$};
+
+	\draw (2,-5) [american inductor, -o]
+	to node[below=10mm] {$2V$} (2,-9);
+	\draw (2,-6.2) node[right=1.5mm] {$\bullet$};
+	
+	%V
+	\draw (4,0) node[above=5mm] {$1W$}
+	to[american inductor, o-] (4,-3);
+	\draw (4,-0.7) node[right=1.5mm] {$\bullet$};
+
+	\draw (4,-5) [american inductor, -o] 
+	to node[below=10mm] {$2W$} (4,-9);
+	\draw (4,-6.2) node[right=1.5mm] {$\bullet$};
+	
+	%Verbindung
+	\draw (0,-3) to[short,-*] (2,-3)
+	-- (4,-3);
+	\draw (0,-5) -- (1,-5)
+	-- (1,-8.5)
+	to[short,-*] (2,-8.5);
+	\draw (2,-5) -- (3,-5)
+	-- (3,-8.5)
+	to[short,-*] (4,-8.5);
+	\draw (4,-5) -- (4,-4.5)
+	-- (-1,-4.5)
+	-- (-1,-8.5)
+	to[short,-*] (0,-8.5);
+
+	%Spannungspfeile
+	\draw (-0.2,0) to [open, v>=$U_a$] (-0.2,-3);
+	\draw (1.8,0) to [open, v>=$U_b$] (1.8,-3);
+	\draw (3.8,0) to [open, v>=$U_c$] (3.8,-3);
+
+	\draw (-0.2,-5.5) to [open, v>=$U_d$] (-0.2,-8.5);
+	\draw (1.8,-5.5) to [open, v>=$U_e$] (1.8,-8.5);
+	\draw (3.8,-5.5) to [open, v>=$U_f$] (3.8,-8.5);
+	
+\end{circuitikz}
+\caption{Schaltung}
+\end{minipage}%
+\end{figure}

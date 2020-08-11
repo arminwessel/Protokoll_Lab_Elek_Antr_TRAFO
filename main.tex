@@ -1,0 +1,63 @@
+\documentclass[a4paper]{article}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{pdfpages}
+\usepackage{a4wide}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphics}
+\usepackage{mathrsfs}
+\usepackage{xspace}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage{csvsimple}
+\usepackage{pgfplotstable} % Generates table from .csv
+\usepackage{setspace}
+\usepackage{currfile}
+\restylefloat{table}
+\providecommand{\zB}{z.\,B.\@\xspace}
+\providecommand{\Matlab}{\textsc{Matlab}\xspace}
+\usepackage[binary-units]{siunitx}
+\sisetup{locale = DE}
+\sisetup{per-mode = symbol-or-fraction}
+\DeclareSIUnit\rounds{U}
+\DeclareSIUnit\nmeter{Nm}
+\usepackage[breaklinks=true]{hyperref}
+\renewcommand{\j}{\jmath}
+% Ableitungen
+\newcommand{\dd}{\mathop{}\!\mathrm{d}}
+\newcommand{\Diff}[2]{\frac{\dd#1}{\dd#2}}
+\newcommand{\DiffT}[1]{\Diff{#1}{t}}
+\newcommand{\DDiff}[2]{\frac{\dd^2#1}{\dd#2^2}}
+\newcommand{\DDiffT}[1]{\DDiff{#1}{t}}
+\newcommand{\PartDiff}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\PartDiffT}[1]{\Diff{#1}{t}}
+\newcommand{\PartDDiff}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\PartDDiffT}[1]{\DDiff{#1}{t}}
+
+% Makro für Gleichungen, Abbildungen, Tabellen
+\newcommand{\abb}[1]{Abb. \ref{#1}}
+\newcommand{\tab}[1]{Tab. \ref{#1}}
+\newcommand{\glg}[1]{Glg. \ref{#1}}
+\newcommand{\chp}[1]{Kap. \ref{#1}}
+\usepackage[european]{circuitikz}
+\usepackage{tikz}
+\usetikzlibrary{arrows,decorations,intersections, decorations.text,calc}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{units}
+\pgfplotsset{ticklabel style={/pgf/number format/use comma,/pgf/number format/1000 sep={ }}}
+\usetikzlibrary{external}
+\tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
+\tikzset{external/up to date check=simple}
+\tikzset{external/force remake}
+\begin{document}
+\includepdf{Deckblatt}
+\tableofcontents\newpage
+\input{./1/ch1}
+\input{./2/ch2}
+\input{./3/ch3}
+\input{./4/ch4}
+\input{./5/ch5}
+\end{document}
