@@ -1,0 +1,23 @@
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=12cm,
+		yticklabel pos = left,
+		ylabel near ticks,
+		ylabel= {Leerlaufspannung $U_0$},
+		y unit = \si{\volt},
+		xlabel = {Leerlaufstrom $I_0$},
+		x unit = \si{\ampere},
+		grid=major,
+		xmin = 0,
+		xmax = 30,
+		ymin = 0,
+		ymax = 500
+		]
+            \addplot[smooth,mark=*,blue,dashed,line width=0.5mm] table[x=I_0, y=U_0, header=has colnames,col sep=comma] {\currfiledir leerlauf.csv};
+        \end{axis}
+		\end{tikzpicture}
+    \caption{Leerlaufversuch, Spannung}
+\end{figure}

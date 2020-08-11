@@ -1,0 +1,45 @@
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 12cm,
+	   xlabel = {Kurzschlussspannung $U_{k,\text{Str}}$},
+	   x unit = \si{\volt},
+	   ylabel= {Scheinleistung $S_k$, Wirkleistung $P_k$},
+	   y unit = {\si{\volt\ampere}, \si{\watt}},
+	   grid=major,
+        xmin=0,
+        xmax=30,
+		ymin=0,
+		ymax=25000]
+		\addplot[smooth,blue,line width=0.5mm] table[x=U_k, y=P_k, header=has colnames,col sep=comma] {\currfiledir kurzschluss.csv};
+		\label{tikz_kurzschluss1}
+		\addplot[smooth,red,line width=0.5mm] table[x=U_k, y=S_k, header=has colnames,col sep=comma] {\currfiledir kurzschluss.csv};
+		\label{tikz_kurzschluss2}
+		\end{axis}
+		\begin{axis}[
+		width=\textwidth,
+		height=12cm,
+		axis x line = none,
+	%	ylabel pos= right,
+		yticklabel pos = right,
+		ylabel near ticks,
+		ylabel= {Leistungsfaktor $\cos(\varphi)$},
+		y unit = 1,
+		xmin = 0,
+		xmax = 30,
+		ymin = 0,
+		ymax = 1,
+		legend style={
+            at={(0.1,0.3)},
+            anchor=west}
+            ]
+            \addlegendimage{/pgfplots/refstyle=tikz_kurzschluss1}\addlegendentry{Wirkleistung $P_k$}
+            \addlegendimage{/pgfplots/refstyle=tikz_kurzschluss2}\addlegendentry{Scheinleistung $S_k$}
+            \addplot[smooth,blue,dashed, line width=0.5mm] table[x=U_k, y=cosphi, header=has colnames,col sep=comma] {\currfiledir kurzschluss.csv};
+            \addlegendentry{Leistungsfaktor $\cos(\varphi)$}
+        \end{axis}
+	\end{tikzpicture}
+	\caption{Kurzschlussversuch; durchgezogene Linien: linke Skala, gestrichelte Linien: rechte Skala}
+\end{figure}

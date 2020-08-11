@@ -1,0 +1,22 @@
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+		\begin{axis}[
+		width=\textwidth,
+		height=12cm,
+		ylabel near ticks,
+		ylabel= {Kurzschlussstrom $I_{k,\text{Str}}$},
+		y unit = \si{\ampere},
+		xlabel = {Kurzschlussspannung $U_{k,\text{Str}}$},
+		x unit = \si{\volt},
+		grid=major,
+		xmin = 0,
+		xmax = 30,
+		ymin = 0,
+		ymax = 200
+		]
+            \addplot[smooth,mark=*,blue,dashed,line width=0.5mm] table[x=U_k, y=I_k, header=has colnames,col sep=comma] {\currfiledir kurzschluss.csv};
+        \end{axis}
+		\end{tikzpicture}
+    \caption{Kurzschlussversuch, Strom}
+\end{figure}

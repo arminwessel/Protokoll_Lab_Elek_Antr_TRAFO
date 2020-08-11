@@ -1,0 +1,46 @@
+\begin{figure}
+    \centering
+    \begin{tikzpicture}
+    \begin{axis}[
+       width=\textwidth,
+       height= 12cm,
+	   xlabel=Leerlaufstrom $I_0$,
+	   x unit = \si{\ampere},
+	   ylabel= {Scheinleistung $S_0$, Wirkleistung $P_0$},
+	   y unit = {\si{\volt\ampere}, \si{\watt}},
+	   grid=major,
+        xmin=0,
+        xmax=30,
+		ymin=0,
+		ymax=25000]
+		\addplot[smooth,blue,line width=0.5mm] table[x=I_0, y=P_0, header=has colnames,col sep=comma] {\currfiledir leerlauf.csv};
+		\label{tikz_leerlauf1}
+		\addplot[smooth,red,line width=0.5mm] table[x=I_0, y=S_0, header=has colnames,col sep=comma] {\currfiledir leerlauf.csv};
+		\label{tikz_leerlauf2}
+		\end{axis}
+		\begin{axis}[
+		width=\textwidth,
+		height=12cm,
+		axis x line = none,
+	%	ylabel pos= right,
+		yticklabel pos = right,
+		ylabel near ticks,
+		ylabel= {Leistungsfaktor $\cos(\varphi)$},
+		y unit = 1,
+		xmin = 0,
+		xmax = 30,
+		ymin = 0,
+		ymax = 1,
+		legend style={
+            at={(0.1,0.3)},
+            anchor=west}
+            ]
+            \addlegendimage{/pgfplots/refstyle=tikz_leerlauf1}\addlegendentry{Wirkleistung $P_0$}
+            \addlegendimage{/pgfplots/refstyle=tikz_leerlauf2}\addlegendentry{Scheinleistung $S_0$}
+            \addplot[smooth,blue,dashed, line width=0.5mm] table[x=I_0, y=cosphi, header=has colnames,col sep=comma] {\currfiledir leerlauf.csv};
+            \addlegendentry{Leistungsfaktor $\cos(\varphi)$}
+            
+        \end{axis}
+	\end{tikzpicture}
+	\caption{Leerlaufversuch; durchgezogene Linien: linke Skala, gestrichelte Linien: rechte Skala}
+\end{figure}
