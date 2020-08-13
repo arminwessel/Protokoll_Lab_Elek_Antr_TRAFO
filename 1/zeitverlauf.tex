@@ -10,17 +10,17 @@
 	   y unit = \si{\ampere},
 	   grid=major,
         xmin=0,
-        xmax=0.4,
-		ymin=-30,
-		ymax=30,
+        xmax=0.06,
+		ymin=-20,
+		ymax20,
 		legend style={
-            at={(0.1,0.3)},
+            at={(0.1,0.1)},
             anchor=west}]
-		\addplot[smooth,blue,line width=0.5mm] table[x=Zeit, y=I_U, header=has colnames,col sep=comma,x expr=\thisrowno{0}+0.2,each nth point={2}] {\currfiledir zeitverlauf.csv};
+		\addplot[smooth,blue,line width=0.5mm] table[x=Second, y=CH1, header=has colnames,col sep=comma,x expr=\thisrowno{0}+0.022,each nth point={2}] {\currfiledir zeitverlauf.csv};
 		\addlegendentry{$I_U$}
-		\addplot[smooth,red,line width=0.5mm] table[x=Zeit, y=I_V, header=has colnames,col sep=comma,x expr=\thisrowno{0}+0.2,each nth point={2}] {\currfiledir zeitverlauf.csv};
+		\addplot[smooth,red,line width=0.5mm] table[x=Second, y=CH2, header=has colnames,col sep=comma,x expr=\thisrowno{0}+0.022,each nth point={2}] {\currfiledir zeitverlauf.csv};
 		\addlegendentry{$I_V$}
-		\addplot[smooth,green,line width=0.5mm] table[x=Zeit, y=I_W, header=has colnames,col sep=comma,x expr=\thisrowno{0}+0.2,each nth point={2}] {\currfiledir zeitverlauf.csv};
+		\addplot[smooth,green,line width=0.5mm] table[x=Second, y=CH3, header=has colnames,col sep=comma,x expr=\thisrowno{0}+0.022,each nth point={2}] {\currfiledir zeitverlauf.csv};
 		\addlegendentry{$I_W$}
 		\end{axis}
 	\end{tikzpicture}

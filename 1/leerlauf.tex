@@ -10,9 +10,9 @@
 	   y unit = {\si{\volt\ampere}, \si{\watt}},
 	   grid=major,
         xmin=0,
-        xmax=30,
+        xmax=23,
 		ymin=0,
-		ymax=25000]
+		ymax=20000]
 		\addplot[smooth,blue,line width=0.5mm] table[x=I_0, y=P_0, header=has colnames,col sep=comma] {\currfiledir leerlauf.csv};
 		\label{tikz_leerlauf1}
 		\addplot[smooth,red,line width=0.5mm] table[x=I_0, y=S_0, header=has colnames,col sep=comma] {\currfiledir leerlauf.csv};
@@ -28,11 +28,11 @@
 		ylabel= {Leistungsfaktor $\cos(\varphi)$},
 		y unit = 1,
 		xmin = 0,
-		xmax = 30,
+		xmax = 23,
 		ymin = 0,
 		ymax = 1,
 		legend style={
-            at={(0.1,0.3)},
+            at={(0.1,0.8)},
             anchor=west}
             ]
             \addlegendimage{/pgfplots/refstyle=tikz_leerlauf1}\addlegendentry{Wirkleistung $P_0$}
