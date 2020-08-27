@@ -1,9 +1,9 @@
-\section{Anhang}
-\begin{table}[h!]
+\newpage \section{Anhang}
+\begin{table}[ht!]
     \centering% Tabelle zu leerlauf.csv
     \begin{tabular}{|c|c|c|c|c|}
     \hline
-    \bfseries $I_0$ & \bfseries $P_0$ & \bfseries $S_0$ & \bfseries $U_0$ & \bfseries $\mathrm{cos}(\varphi)$ 
+    \bfseries $I_0[\SI{}{\ampere}]$ & \bfseries $P_0[\SI{}{\watt}]$ & \bfseries $S_0[\SI{}{\volt\ampere}]$ & \bfseries $U_0[\SI{}{\volt}]$ & \bfseries $\mathrm{cos}(\varphi)[\SI{}{1}]$ 
     \csvreader[head to column names]{1/leerlauf.csv}{}
     {\\\hline\csvcoli& \csvcolii& \csvcoliii& \csvcoliv& \csvcolv}
     \\\hline
@@ -12,11 +12,11 @@
     \label{tab:leerlauf}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[ht!]
     \centering% Tabelle zu kurzschluss.csv
     \begin{tabular}{|c|c|c|c|c|}
     \hline
-    \bfseries $I_k$ & \bfseries $P_k$ & \bfseries $S_k$ & \bfseries $U_k$ & \bfseries $\mathrm{cos}(\varphi)$
+    \bfseries $I_k[\SI{}{\ampere}]$ & \bfseries $P_k[\SI{}{\watt}]$ & \bfseries $S_k[\SI{}{\volt\ampere}]$ & \bfseries $U_k[\SI{}{\volt}]$ & \bfseries $\mathrm{cos}(\varphi)[\SI{}{1}]$
     \csvreader[head to column names]{4/kurzschluss.csv}{}
     {\\\hline\csvcoli& \csvcolii& \csvcoliii& \csvcoliv& \csvcolv}
     \\\hline

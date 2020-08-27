@@ -51,16 +51,17 @@
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/,optimize command away=\includepdf]
 \tikzset{external/up to date check=simple}
-\tikzset{external/force remake}
+%\tikzset{external/force remake}
+\definecolor{green}{HTML}{228B22}
 \begin{document}
 \includepdf{Deckblatt_TRAFO}
 \tableofcontents\newpage
-% \input{./1/ch1}
-% \input{./2/ch2}
+\input{./1/ch1}
+\input{./2/ch2}
 \input{./3/ch3}
 \input{./4/ch4}
 \input{./5/ch5}
-\input{Anhang}
+%\input{Anhang} brauchen wir nicht 
 \end{document}
 %% Link zu Laborvorbereitung und Mitschrift:
 %% https://drive.google.com/file/d/1Nk3MftkeQXkkuzXWRtU5vGNyyXJULtrB/view?usp=sharing

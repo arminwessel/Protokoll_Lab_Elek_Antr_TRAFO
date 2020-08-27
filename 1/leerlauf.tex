@@ -1,4 +1,4 @@
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \begin{tikzpicture}
     \begin{axis}[
@@ -10,7 +10,7 @@
 	   y unit = {\si{\volt\ampere}, \si{\watt}},
 	   grid=major,
         xmin=0,
-        xmax=23,
+        xmax=24,
 		ymin=0,
 		ymax=20000]
 		\addplot[smooth,blue,line width=0.5mm] table[x=I_0, y=P_0, header=has colnames,col sep=comma] {\currfiledir leerlauf.csv};
@@ -28,7 +28,7 @@
 		ylabel= {Leistungsfaktor $\cos(\varphi)$},
 		y unit = 1,
 		xmin = 0,
-		xmax = 23,
+		xmax = 24,
 		ymin = 0,
 		ymax = 1,
 		legend style={
@@ -43,4 +43,5 @@
         \end{axis}
 	\end{tikzpicture}
 	\caption{Leerlaufversuch; durchgezogene Linien: linke Skala, gestrichelte Linien: rechte Skala}
+	\label{fig:leerlauf_leistungen}
 \end{figure}

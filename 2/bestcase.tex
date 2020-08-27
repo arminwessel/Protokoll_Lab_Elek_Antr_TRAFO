@@ -1,28 +1,29 @@
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \begin{tikzpicture}
     \begin{axis}[
        width=\textwidth,
        height= 12cm,
 	   xlabel=Zeit $t$,
-	   x unit = \si{\second},
+	   x unit = \si{\milli\second},
 	   ylabel= Einschaltstrom $I$,
 	   y unit = \si{\ampere},
 	   grid=major,
         xmin=0,
-        xmax=0.24,
+        xmax=240,
 		ymin=-200,
 		ymax=200,
 		legend style={
             at={(0.15,0.1)},
             anchor=west}]
-		\addplot[smooth,blue,line width=0.5mm] table[x=Second, y=CH1, header=has colnames,col sep=comma,x expr=\thisrowno{0}-0.0224,each nth point={1}] {\currfiledir NewFile4.csv};
+		\addplot[smooth,blue,line width=0.5mm] table[ y=CH1, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000-22.4,each nth point={1}] {\currfiledir bestcase.csv};
 		\addlegendentry{$I_U$}
-		\addplot[smooth,red,line width=0.5mm] table[x=Second, y=CH2, header=has colnames,col sep=comma,x expr=\thisrowno{0}-0.0224,each nth point={1}] {\currfiledir NewFile4.csv};
+		\addplot[smooth,red,line width=0.5mm] table[ y=CH2, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000-22.4,each nth point={1}] {\currfiledir bestcase.csv};
 		\addlegendentry{$I_V$}
-		\addplot[smooth,green,line width=0.5mm] table[x=Second, y=CH3, header=has colnames,col sep=comma,x expr=\thisrowno{0}-0.0224,each nth point={1}] {\currfiledir NewFile4.csv};
+		\addplot[smooth,green,line width=0.5mm] table[ y=CH3, header=has colnames,col sep=comma,x expr=\thisrowno{0}*1000-22.4,each nth point={1}] {\currfiledir bestcase.csv};
 		\addlegendentry{$I_W$}
 		\end{axis}
 	\end{tikzpicture}
     \caption{Zeitverlauf der Ströme im Einschaltvorgang. Bestcase}
+    \label{fig:Einschaltvorgang_bestcase}
 \end{figure}

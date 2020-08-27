@@ -1,4 +1,4 @@
-\begin{figure}
+\begin{figure}[h!]
     \centering
     \begin{tikzpicture}
 		\begin{axis}[
@@ -11,12 +11,13 @@
 		x unit = \si{\volt},
 		grid=major,
 		xmin = 0,
-		xmax = 30,
+		xmax = 24,
 		ymin = 0,
-		ymax = 200
+		ymax = 100
 		]
             \addplot[smooth,mark=*,blue,dashed,line width=0.5mm] table[x=U_k, y=I_k, header=has colnames,col sep=comma] {\currfiledir kurzschluss.csv};
         \end{axis}
 		\end{tikzpicture}
-    \caption{Kurzschlussversuch, Strom}
+    \caption{Kurzschlussversuch; linearer Zusammenhang zwischen Strangstrom und Aussenleiterspannung (aufgrund der geringen Eingangsspannung tritt keine Sättigung auf - linearer Bereich).}
+    \label{fig:Kurzschluss_Strom}
 \end{figure}
